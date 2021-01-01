@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Game extends React.PureComponent{
+class Game extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -10,16 +10,18 @@ class Game extends React.PureComponent{
     }
     render(){
         // console.log(this.props.NamesArr);
+        // debugger;
         if(this.props.NamesArr.length<3){
             return(
                 <button disabled>Enter At least 3 Players.</button>
             );
         }
         else{
+          // debugger;
             return(
                 <div>
                     <GameEvaluate NamesArr={this.props.NamesArr} run={this.state.run}/>
-                    <button type="button" onClick={() => {this.setState({run: this.state.run+1})}}>Start</button>
+                    <button type="button" onClick={() => {randomIndex(this.props.NamesArr.length);this.setState({run: this.state.run+1});}}>Start</button>
                 </div>
             );
         }
@@ -30,17 +32,16 @@ class GameEvaluate extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      prevAsker: 0,
-      prevRespondent: 0,
     }
   }
   shouldComponentUpdate(nextProps, nextState){
+
     if(nextProps.run===0){
-      console.log(false);
+      // console.log(false);
       return(false);
     }
     else if(nextProps.run!==this.props.run){
-      console.log(nextProps.run);
+      // console.log(nextProps.run);
       return(true);
     }
     else{
@@ -48,20 +49,11 @@ class GameEvaluate extends React.Component{
     }
   }
   render(){
-    var prevAsker = this.state.prevAsker;
-    var prevRespondent = this.state.prevRespondent;
-    var respondent=0,asker=0;
-    while((respondent===asker) || (prevRespondent===respondent) || (prevAsker===asker)){
-        respondent=randomIndex(this.props.NamesArr.length);
-        asker=randomIndex(this.props.NamesArr.length);
-    }
-    // this.state.prevAsker=asker
-    // this.state.prevRespondent=respondent
     if(this.props.run>0){
-      this.setState({prevAsker:asker,prevRespondent:respondent});
+      // debugger;
       return(
         <div className="OP">
-          {this.props.NamesArr[respondent] + " " + this.props.NamesArr[asker]}
+          {this.props.NamesArr[window.respondent] + " " + this.props.NamesArr[window.asker]}
         </div>
       );
     }
@@ -71,8 +63,19 @@ class GameEvaluate extends React.Component{
   }
 
 }
-
+function randomNumber(max){
+  return Math.floor(Math.random() * Math.floor(max));
+}
 function randomIndex(max) {
-    return Math.floor(Math.random() * Math.floor(max));
+    debugger;
+    window.respondent=randomNumber(max);
+    window.asker=randomNumber(max);
+    while((window.respondent===window.asker) || (window.prevRespondent===window.respondent) || (window.prevAsker===window.asker)){
+        window.respondent=randomNumber(max);
+        window.asker=randomNumber(max);
+    }
+    window.prevAsker=window.asker;
+    window.prevRespondent=window.respondent;
+    console.log("Random");
 }
 export default Game;
