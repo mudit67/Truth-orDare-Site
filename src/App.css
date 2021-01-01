@@ -31,7 +31,9 @@ input{
   margin-top: 2.5rem;
   background-color: #121212;
   color: white;
-  border: none;
+  padding: 0;
+  border: none !important;
+  outline-width: 0;
 }
 
 .input-bar{
@@ -41,12 +43,16 @@ input{
   margin-left: auto;
   margin-right: auto;
   transform: translateX(-100%);
+  
 }
 
 .input-container{
+  margin-top: 1rem;
+  position: relative;
   max-width: 22%;
   display: inline-block;
   overflow: hidden;
+  background-color: #121212;
 }
 
 input:focus + .input-bar{
