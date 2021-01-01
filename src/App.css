@@ -1,3 +1,117 @@
+body{
+    background-color: #121212;
+}
+
 #root{
+    margin-top: 2rem;
     text-align: center;
 }
+h1{
+  padding-bottom:0.3rem;
+  width:auto;
+  display: inline;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-size: 2.75rem;
+  border: 0.5rem solid white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 2rem;
+}
+nav{
+  margin: 10px;
+}
+
+form {
+  text-align: center;
+}
+
+input{
+  font-size: 1.25rem;
+  margin-top: 2.5rem;
+  background-color: #121212;
+  color: white;
+  border: none;
+}
+
+.input-bar{
+  height: 0.1rem;
+  width: 100%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(-100%);
+}
+
+.input-container{
+  max-width: 22%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+input:focus + .input-bar{
+  transform: translateY(0%);
+  transition: transform 0.5s ease;
+}
+
+.add-icon{
+    background-color: #121212;
+    color: white;
+    width: 1.25rem !important;
+    font-size: 3rem;
+    margin-left: 1rem;
+}
+
+.close-icon{
+  margin-right: 0.5rem;
+  float: right;
+  background-color: #121212;
+  color: white;
+
+}
+
+.users-name{
+    font-size: 1.5rem;
+    color: white;
+}
+
+.names-container{
+  margin-top: 1rem !important;
+  margin:auto;
+  width: 25%;
+  text-align: left;
+  padding-left: 1rem;
+  max-height: 9rem;
+  overflow-y: scroll;
+
+}
+
+.samealert{
+  font-size: 1.25rem;
+  background-color: #121212;
+  color:white;
+}
+
+.play-button{
+  margin-top: 1rem;
+  font-size: 2rem;
+  background-color: #121212;
+  color:white;
+  border: 0 solid white;
+  border-radius: 0.5rem;
+}
+
+.play-icon{
+  margin-left: .5rem;
+}
+.OP{
+  font-size: 2rem;
+  background-color: #121212;
+  color:white;
+}
+
+.name{
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* background-color: #606060; */

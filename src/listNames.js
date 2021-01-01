@@ -1,19 +1,20 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faWindowClose}  from '@fortawesome/free-solid-svg-icons';
+import {faTimes}  from '@fortawesome/free-solid-svg-icons';
 // <i class="fas fa-window-close"></i>
 
 
 function listNames(props){
     var Names = props.namesArr.map((name, index) => {
+        // console.log(index);
         return(
-            <div key = {index}>
-                {name} <FontAwesomeIcon icon={faWindowClose}/>
+            <div class="users-name" key = {index}>
+                {name} <FontAwesomeIcon icon={faTimes} className="close-icon" onClick={() => {props.removeUser(index);}}/>
             </div>
         );
     });
     return(
-      <div>
+      <div className="names-container">
         {Names}
       </div>
     );
