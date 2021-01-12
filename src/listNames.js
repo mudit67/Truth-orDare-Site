@@ -8,7 +8,7 @@ function listNames(props){
     var Names = props.namesArr.map((name, index) => {
         // console.log(index);
         return(
-            <div class="users-name" key = {index}>
+            <div className="users-name" key = {index}>
                 {name} <FontAwesomeIcon icon={faTimes} className="close-icon" onClick={() => {props.removeUser(index);}}/>
             </div>
         );

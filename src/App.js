@@ -28,8 +28,7 @@ class App extends React.Component{
       return (" ");
     });
     if(change && (this.state.user!=="")){
-      this.setState({users: this.state.users.concat(this.state.user)});
-      this.setState({user:""});
+      this.setState({users: this.state.users.concat(this.state.user),user:""});
     }
     // console.log(this.state.users);
   }
@@ -37,10 +36,8 @@ class App extends React.Component{
     this.setState({showAlert: false});
     this.setState({user:event.target.value});
   }
-  removeUser(index){
-    var Newarr = this.state.users;
-    Newarr.splice(index,1);
-    this.setState({users: Newarr});
+  removeUser(del_index){
+    this.setState({users: this.state.users.filter((user, index) => index!==del_index)});
   }
   render(){
     return(
