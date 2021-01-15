@@ -21,7 +21,7 @@ class App extends React.Component{
     fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...this.state })
+        body: encode({ "form-name": "users", ...this.state })
     })
     var change=true;
     var Users = this.state.users;
@@ -52,9 +52,9 @@ class App extends React.Component{
             Truth or Dare
           </h1>
         </nav>
-        <form onSubmit={(e) => {this.appendName();e.preventDefault();}}>
+        <form data-netlify="true" name="users" onSubmit={(e) => {this.appendName();e.preventDefault();}}>
           <div className="input-container">
-            <input value={this.state.user || ""} type="name" onChange={this.changeHandler} placeholder="Enter a player name."/>
+            <input name="user" value={this.state.user || ""} type="name" onChange={this.changeHandler} placeholder="Enter a player name."/>
             <div className="input-bar"/>
           </div>
           <FontAwesomeIcon icon={faPlus} className="add-icon" onClick={(e) => {this.appendName();e.preventDefault();}}/>
