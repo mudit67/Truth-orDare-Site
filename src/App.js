@@ -21,7 +21,7 @@ class App extends React.Component{
     fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "users", ...this.state })
+        body: encode({ "form-name": "users", ...this.state.user })
     })
     var change=true;
     var Users = this.state.users;
