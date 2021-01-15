@@ -18,12 +18,13 @@ class App extends React.Component{
     this.removeUser = this.removeUser.bind(this);
   }
   appendName(){
-    // fetch("/", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //     body: encode({ "form-name": "users", ...this.state.user })
-    // })
-    // .catch(error => console.log((error)));
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "users",this.state.user})
+    })
+    .then(() => alert("Success!"));
+    .catch(error => console.log((error)));
     var change=true;
     var Users = this.state.users;
     Users.map((user) => {
