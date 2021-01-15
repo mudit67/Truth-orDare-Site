@@ -18,6 +18,11 @@ class App extends React.Component{
     this.removeUser = this.removeUser.bind(this);
   }
   appendName(){
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...this.state })
+    })
     var change=true;
     var Users = this.state.users;
     Users.map((user) => {
@@ -81,5 +86,10 @@ function SameAlert(props){
   }
 }
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
 
 export default App;
