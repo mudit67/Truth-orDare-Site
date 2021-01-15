@@ -52,10 +52,10 @@ class App extends React.Component{
             Truth or Dare
           </h1>
         </nav>
-        <form method="post" name="users" onSubmit={(e) => {this.appendName();e.preventDefault();}} data-netlify="true" data-netlify-honeypot="bot-field" netlify="true">
+        <form name="users" method="post" onSubmit={(e) => {this.appendName();e.preventDefault();}} data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="users"/>
           <div className="input-container">
             <input name="user" value={this.state.user || ""} type="name" onChange={this.changeHandler} placeholder="Enter a player name."/>
-            <input type="hidden" name="form-name" value="users"/>
             <div className="input-bar"/>
           </div>
           <FontAwesomeIcon icon={faPlus} className="add-icon" onClick={(e) => {this.appendName();e.preventDefault();}}/>
