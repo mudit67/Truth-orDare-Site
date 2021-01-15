@@ -54,7 +54,7 @@ class App extends React.Component{
             Truth or Dare
           </h1>
         </nav>
-        <form name="users" method="post" onSubmit={(e) => {this.appendName();e.preventDefault();}} data-netlify="true" data-netlify-honeypot="bot-field">
+        <form name="users" onSubmit={(e) => {this.appendName();e.preventDefault();}}>
         <input type="hidden" name="form-name" value="users"/>
           <div className="input-container">
             <input name="user" value={this.state.user || ""} type="name" onChange={this.changeHandler} placeholder="Enter a player name."/>
