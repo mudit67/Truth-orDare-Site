@@ -23,6 +23,7 @@ class App extends React.Component{
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "users", ...this.state.user })
     })
+    .catch(error => console.log((error)));
     var change=true;
     var Users = this.state.users;
     Users.map((user) => {
